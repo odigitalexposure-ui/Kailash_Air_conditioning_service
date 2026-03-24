@@ -38,7 +38,9 @@ Message: ${form.message}`;
         <h1 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">
           Contact Us
         </h1>
-        <p className="text-gray-100/90 text-lg">Get in touch with Kailash Air Conditioning Co </p>
+        <p className="text-gray-100/90 text-lg break-words p-2 whitespace-normal">
+          Get in touch with Kailash Air Conditioning Co
+        </p>
       </section>
 
       {/* 🧠 CONTACT SECTION */}
@@ -135,11 +137,11 @@ Message: ${form.message}`;
             {/* Map */}
             <div className="w-full h-[300px] rounded-2xl overflow-hidden shadow-2xl mt-6 border border-gray-200">
               <iframe
-  title="Location"
-  src="https://www.google.com/maps?q=33A+Lalin+Sarani+Serampore+Hooghly+West+Bengal&output=embed"
-  className="w-full h-full border-0"
-  loading="lazy"
-/>
+                title="Location"
+                src="https://www.google.com/maps?q=33A+Lalin+Sarani+Serampore+Hooghly+West+Bengal&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+              />
             </div>
 
           </motion.div>
