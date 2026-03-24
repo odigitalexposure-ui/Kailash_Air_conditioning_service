@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
 
-    const phone = "91 7980327267"; // your WhatsApp number with country code
+    const phone = "91 8617781293"; // your WhatsApp number with country code
 
     const text = `Hello, my name is ${form.name}.
 Email: ${form.email}
@@ -114,16 +114,15 @@ Message: ${form.message}`;
               <div className="flex items-center gap-4 text-gray-800">
                 <MapPin className="text-primary" size={20} />
                 <p className="text-sm">
-                  Agarpara Kalyan Samity Ground, <br />
-                  Near Agarpara Railway Station, 5 No. Rail Gate
+                  33/A, Lalin Sarani, Serampore, Hooghly, West Bengal
                 </p>
               </div>
 
               <div className="flex items-center gap-4 text-gray-800">
                 <Phone className="text-primary" size={20} />
                 <p className="text-sm">
-                  +91 7980327267, <br />
-                  +91 8013029238
+                  +91 8617781293, <br />
+                  +91 9830620528
                 </p>
               </div>
 
@@ -136,11 +135,11 @@ Message: ${form.message}`;
             {/* Map */}
             <div className="w-full h-[300px] rounded-2xl overflow-hidden shadow-2xl mt-6 border border-gray-200">
               <iframe
-                title="Google Map"
-                src="https://www.google.com/maps?q=Agarpara%20Kalyan%20Samity%20Ground%20Near%20Agarpara%20Railway%20Station&output=embed"
-                className="w-full h-full border-0"
-                loading="lazy"
-              />
+  title="Location"
+  src="https://www.google.com/maps?q=33A+Lalin+Sarani+Serampore+Hooghly+West+Bengal&output=embed"
+  className="w-full h-full border-0"
+  loading="lazy"
+/>
             </div>
 
           </motion.div>
