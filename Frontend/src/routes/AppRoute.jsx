@@ -14,6 +14,8 @@ const ACMaintenance=lazy(()=>import("../services/ACMaintenance"))
 const RefrigeratorRepair = lazy(() => import("../services/RefrigeratorRepair"));
 const WashingMachineRepair=lazy(()=>import("../services/WashingMachineRepair"))
 const MicrowaveRepair=lazy(()=>import("../services/MicrowaveRepair"))
+const Gallery=lazy(()=>import("../pages/Gallery"))
+
 // const Athletics = lazy(() => import("../pages/Athletics"));
 // const Gallery=lazy(()=>import("../pages/Gallery"))
 
@@ -57,7 +59,8 @@ const router = createBrowserRouter([
       {path:"ac_maintainance",element: <Suspense fallback={<Loader />}><ACMaintenance /></Suspense>},
       {path:"refrigerator-repair",element:<Suspense fallback={<Loader />}><RefrigeratorRepair /></Suspense>},
       {path:"washing-machine-repair",element:<Suspense fallback={<Loader />}><WashingMachineRepair /></Suspense>},
-      {path:"microwave-repair",element:<Suspense fallback={<Loader />}><MicrowaveRepair /></Suspense>}
+      {path:"microwave-repair",element:<Suspense fallback={<Loader />}><MicrowaveRepair /></Suspense>},
+      {path: "gallery", element: <Suspense fallback={<Loader />}><Gallery /></Suspense>}
     ],
   },
 ]);

@@ -34,7 +34,7 @@ Message: ${form.message}`;
     <div className="w-full overflow-hidden pt-15">
 
       {/* 🔥 HERO */}
-      <section className="py-16 bg-gradient-to-r from-[#1e3a8a] via-[#4f46e5] to-[#db2777] text-white text-center">
+      <section className="py-16 bg-gradient-to-r from-[#1E3A5F] via-[#E8774A] to-[#FFD166] text-white text-center">
         <h1 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">
           Contact Us
         </h1>

@@ -100,6 +100,13 @@ const Navbar = () => {
               Contact
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
             </Link>
+            <Link
+              to="/gallery"
+              className="relative group hover:text-[#E8774A] transition-colors duration-300"
+            >
+              Gallery
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+            </Link>
           </nav>
 
           {/* CTA */}
