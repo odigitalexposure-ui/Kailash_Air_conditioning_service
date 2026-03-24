@@ -110,13 +110,21 @@ const Navbar = () => {
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="flex md:flex items-center gap-3">
             <Phone size={18} className="text-[#FFD166]" />
-            <span className="text-[#F9F5F2]">8617781293</span>
+            <span
+              
+              className="text-[#F9F5F2]  hover:text-[#FFD166] transition-colors duration-300"
+            >
+              8617781293
+            </span>
 
-            <button className="ml-4 bg-[#E8774A] hover:bg-[#FFD166] hover:text-[#1E3A5F] px-5 py-2 rounded-full text-sm transition-colors duration-300">
-              Book Service
-            </button>
+            <a
+              href="tel:8617781293"
+              className="ml-4 bg-[#E8774A] hover:bg-[#FFD166] hover:text-[#1E3A5F] px-5 py-2 rounded-full text-sm transition-colors duration-300 flex items-center gap-2"
+            >
+              <Phone size={18} /> Call Now
+            </a>
           </div>
 
           {/* MOBILE BUTTON */}
