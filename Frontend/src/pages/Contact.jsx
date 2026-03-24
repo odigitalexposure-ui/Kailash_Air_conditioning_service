@@ -38,7 +38,7 @@ Message: ${form.message}`;
         <h1 className="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">
           Contact Us
         </h1>
-        <p className="text-gray-100/90 text-lg">Get in touch with Aparna Sports Academy</p>
+        <p className="text-gray-100/90 text-lg">Get in touch with Kailash Air Conditioning Co </p>
       </section>
 
       {/* 🧠 CONTACT SECTION */}
