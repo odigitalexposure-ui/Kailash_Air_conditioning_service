@@ -103,7 +103,7 @@ const MicrowaveRepair = () => {
 
       {/* HERO SPLIT */}
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-40 bg-gray-50">
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center px-6">
 
@@ -135,7 +135,7 @@ const MicrowaveRepair = () => {
             initial={{opacity:0,x:40}}
             animate={{opacity:1,x:0}}
             transition={{duration:0.6}}
-            src="https://images.unsplash.com/photo-1586201375761-83865001e8f1?q=80&w=1200&auto=format"
+            src="/oven.jpg"
             className="rounded-xl shadow-lg"
           />
 
@@ -266,7 +266,7 @@ const MicrowaveRepair = () => {
 
       {/* BRAND SLIDER */}
 
-      <section className="py-16 bg-gray-50 overflow-hidden">
+      {/* <section className="py-16 bg-gray-50 overflow-hidden">
 
         <h2 className="text-3xl font-bold text-center text-[#1E3A5F] mb-12">
           Microwave Brands We Repair
@@ -294,7 +294,7 @@ const MicrowaveRepair = () => {
 
         </div>
 
-      </section>
+      </section> */}
 
 
       {/* CTA */}

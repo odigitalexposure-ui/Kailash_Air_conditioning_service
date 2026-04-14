@@ -70,7 +70,7 @@ const ACMaintenance = () => {
       <section className="relative h-[75vh] flex items-center justify-center">
 
         <img
-          src="https://images.unsplash.com/photo-1581093458791-9d42c2f2a0c2?q=80&w=1920&auto=format"
+          src="/ac1.jpg"
           alt="AC Maintenance"
           className="absolute inset-0 w-full h-full object-cover"
         />

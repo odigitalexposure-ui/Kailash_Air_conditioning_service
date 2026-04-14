@@ -2,11 +2,20 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo from "/logo.jpeg"; // <-- Replace this with your logo path
+import logo from "/logo.jpeg";
+
+const services = [
+  { name: "AC Installation & Repair", link: "/ac_repair" },
+  { name: "AC Annual Maintenance", link: "/ac_maintainance" },
+  { name: "Refrigerator Repair", link: "/refrigerator-repair" },
+  { name: "Washing Machine Repair", link: "/washing-machine-repair" },
+  { name: "Microwave Oven Repair", link: "/microwave-repair" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -15,36 +24,45 @@ const Navbar = () => {
         setServiceOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  return (
-    <header className="fixed w-full top-0 z-50">
-      {/* NAVBAR */}
-      <div className="backdrop-blur-md bg-[#1E3A5F]/20 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  const closeMobileMenu = () => {
+    setOpen(false);
+    setMobileServiceOpen(false);
+  };
 
-          {/* LOGO IMAGE */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Kailash AC Logo" className="h-20 w-auto rounded-full" />
+  return (
+    <header className="fixed top-0 z-50 w-full">
+      {/* NAVBAR */}
+      <div className="bg-[#1E3A5F]/20 text-white backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-6">
+          {/* LOGO */}
+          <Link to="/" className="flex shrink-0 items-center">
+            <img
+              src={logo}
+              alt="Kailash AC Logo"
+              className="h-14 w-auto rounded-full sm:h-16 md:h-20"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
-          <nav className="hidden md:flex gap-8 text-sm font-medium items-center">
+          <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
             <Link
               to="/"
-              className="relative group hover:text-[#E8774A] transition-colors duration-300"
+              className="group relative transition-colors duration-300 hover:text-[#E8774A]"
             >
               Home
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E8774A] transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
             {/* SERVICES DROPDOWN */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setServiceOpen(!serviceOpen)}
-                className="flex items-center gap-1 relative group hover:text-[#E8774A] transition-colors duration-300"
+                className="group relative flex items-center gap-1 transition-colors duration-300 hover:text-[#E8774A]"
               >
                 Services
                 <motion.span
@@ -53,7 +71,7 @@ const Navbar = () => {
                 >
                   <ChevronDown size={16} />
                 </motion.span>
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E8774A] transition-all duration-300 group-hover:w-full"></span>
               </button>
 
               <AnimatePresence>
@@ -63,19 +81,13 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-3 w-60 bg-[#F9F5F2] text-[#1E3A5F] rounded-lg shadow-xl overflow-hidden"
+                    className="absolute left-0 mt-3 w-64 overflow-hidden rounded-lg bg-[#F9F5F2] text-[#1E3A5F] shadow-xl"
                   >
-                    {[
-                      { name: "AC Installation & Repair", link: "/ac_repair" },
-                      { name: "AC Annual Maintenance", link: "/ac_maintainance" },
-                      { name: "Refrigerator Repair", link: "/refrigerator-repair" },
-                      { name: "Washing Machine Repair", link: "/washing-machine-repair" },
-                      { name: "Microwave Oven Repair", link: "/microwave-repair" }
-                    ].map((item, idx) => (
+                    {services.map((item, idx) => (
                       <Link
                         key={idx}
                         to={item.link}
-                        className="block px-4 py-3 hover:bg-[#FFD166] hover:text-[#1E3A5F] transition-colors duration-200"
+                        className="block px-4 py-3 transition-colors duration-200 hover:bg-[#FFD166] hover:text-[#1E3A5F]"
                         onClick={() => setServiceOpen(false)}
                       >
                         {item.name}
@@ -88,49 +100,61 @@ const Navbar = () => {
 
             <Link
               to="/about"
-              className="relative group hover:text-[#E8774A] transition-colors duration-300"
+              className="group relative transition-colors duration-300 hover:text-[#E8774A]"
             >
               About
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E8774A] transition-all duration-300 group-hover:w-full"></span>
             </Link>
+
             <Link
               to="/contact"
-              className="relative group hover:text-[#E8774A] transition-colors duration-300"
+              className="group relative transition-colors duration-300 hover:text-[#E8774A]"
             >
               Contact
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E8774A] transition-all duration-300 group-hover:w-full"></span>
             </Link>
+
             <Link
               to="/gallery"
-              className="relative group hover:text-[#E8774A] transition-colors duration-300"
+              className="group relative transition-colors duration-300 hover:text-[#E8774A]"
             >
               Gallery
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E8774A] group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E8774A] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </nav>
 
-          {/* CTA */}
-          <div className="flex md:flex items-center gap-3">
+          {/* DESKTOP CTA */}
+          <div className="hidden items-center gap-3 md:flex">
             <Phone size={18} className="text-[#FFD166]" />
-            <span
-              
-              className="text-[#F9F5F2]  hover:text-[#FFD166] transition-colors duration-300"
-            >
+            <span className="text-[#F9F5F2] transition-colors duration-300 hover:text-[#FFD166]">
               8617781293
             </span>
 
             <a
               href="tel:8617781293"
-              className="ml-4 bg-[#E8774A] hover:bg-[#FFD166] hover:text-[#1E3A5F] px-5 py-2 rounded-full text-sm transition-colors duration-300 flex items-center gap-2"
+              className="ml-2 flex items-center gap-2 rounded-full bg-[#E8774A] px-5 py-2 text-sm transition-colors duration-300 hover:bg-[#FFD166] hover:text-[#1E3A5F]"
             >
               <Phone size={18} /> Call Now
             </a>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button className="md:hidden" onClick={() => setOpen(!open)}>
-            {open ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* MOBILE RIGHT SIDE */}
+          <div className="flex items-center gap-2 md:hidden">
+            <a
+              href="tel:8617781293"
+              className="flex items-center justify-center rounded-full bg-[#E8774A] p-2.5 transition-colors duration-300 hover:bg-[#FFD166] hover:text-[#1E3A5F]"
+            >
+              <Phone size={18} />
+            </a>
+
+            <button
+              className="flex items-center justify-center text-white"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -141,62 +165,87 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-[#1E3A5F]/90 text-white backdrop-blur-md"
+            transition={{ duration: 0.25 }}
+            className="border-t border-white/10 bg-[#1E3A5F]/95 text-white backdrop-blur-md md:hidden"
           >
-            <div className="flex flex-col items-center gap-6 py-8">
+            <div className="flex flex-col px-4 py-5">
               <Link
                 to="/"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#E8774A] transition-colors duration-300"
+                onClick={closeMobileMenu}
+                className="rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300 hover:bg-white/10 hover:text-[#E8774A]"
               >
                 Home
               </Link>
 
               <button
-                onClick={() => setServiceOpen(!serviceOpen)}
-                className="flex items-center gap-2 hover:text-[#E8774A] transition-colors duration-300"
+                onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
+                className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300 hover:bg-white/10 hover:text-[#E8774A]"
               >
-                Services <ChevronDown size={18} />
+                <span>Services</span>
+                <motion.span
+                  animate={{ rotate: mobileServiceOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown size={18} />
+                </motion.span>
               </button>
 
-              {serviceOpen && (
-                <div className="flex flex-col gap-3 text-sm bg-[#F9F5F2] text-[#1E3A5F] rounded-lg p-2">
-                  {[
-                    { name: "AC Installation & Repair", link: "/ac-repair" },
-                    { name: "AC Annual Maintenance", link: "/ac-maintenance" },
-                    { name: "Refrigerator Repair", link: "/refrigerator-repair" },
-                    { name: "Washing Machine Repair", link: "/washing-machine-repair" },
-                    { name: "Microwave Oven Repair", link: "/microwave-repair" }
-                  ].map((item, idx) => (
-                    <Link
-                      key={idx}
-                      to={item.link}
-                      className="hover:bg-[#FFD166] px-2 py-1 rounded transition-colors duration-200"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <AnimatePresence>
+                {mobileServiceOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="mt-2 overflow-hidden rounded-2xl bg-[#F9F5F2] p-2 text-[#1E3A5F]"
+                  >
+                    <div className="flex flex-col">
+                      {services.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          to={item.link}
+                          onClick={closeMobileMenu}
+                          className="rounded-xl px-3 py-3 text-sm transition-colors duration-200 hover:bg-[#FFD166]"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <Link
                 to="/about"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#E8774A] transition-colors duration-300"
+                onClick={closeMobileMenu}
+                className="mt-2 rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300 hover:bg-white/10 hover:text-[#E8774A]"
               >
                 About
               </Link>
+
               <Link
                 to="/contact"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#E8774A] transition-colors duration-300"
+                onClick={closeMobileMenu}
+                className="rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300 hover:bg-white/10 hover:text-[#E8774A]"
               >
                 Contact
               </Link>
 
-              <button className="bg-[#E8774A] hover:bg-[#FFD166] hover:text-[#1E3A5F] px-6 py-2 rounded-full transition-colors duration-300">
-                Book Service
-              </button>
+              <Link
+                to="/gallery"
+                onClick={closeMobileMenu}
+                className="rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300 hover:bg-white/10 hover:text-[#E8774A]"
+              >
+                Gallery
+              </Link>
+
+              <a
+                href="tel:8617781293"
+                className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#E8774A] px-6 py-3 text-sm font-medium transition-colors duration-300 hover:bg-[#FFD166] hover:text-[#1E3A5F]"
+              >
+                <Phone size={18} />
+                Call Now
+              </a>
             </div>
           </motion.div>
         )}

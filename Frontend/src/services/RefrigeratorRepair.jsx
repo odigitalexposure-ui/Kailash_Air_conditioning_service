@@ -71,7 +71,7 @@ const RefrigeratorRepair = () => {
       <section className="relative h-[75vh] flex items-center justify-center">
 
         <img
-          src="https://images.unsplash.com/photo-1581579188871-45ea61f2a96e?q=80&w=1920&auto=format"
+          src="/refrigaretor.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           alt="Refrigerator Repair"
         />
