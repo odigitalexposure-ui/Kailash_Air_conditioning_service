@@ -68,7 +68,7 @@ const RefrigeratorRepair = () => {
     <div className="w-full">
 
       {/* HERO */}
-      <section className="relative h-[75vh] p-0 flex items-center justify-center">
+      <section className="relative h-[75vh] flex items-center justify-center">
 
         <img
           src="/refrigaretor.jpg"

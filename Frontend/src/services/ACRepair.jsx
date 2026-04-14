@@ -6,7 +6,7 @@ const ACRepair = () => {
     <div className="w-full">
 
       {/* HERO SECTION */}
-      <section className="relative h-[80vh] p-0 flex items-center justify-center">
+      <section className="relative h-[80vh]  flex items-center justify-center">
 
         <img
           src="/ac2.jpg"
