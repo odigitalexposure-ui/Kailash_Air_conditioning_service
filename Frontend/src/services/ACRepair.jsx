@@ -72,7 +72,7 @@ const ACRepair = () => {
             },
             {
               title: "Chiller System",
-              img: "https://images.unsplash.com/photo-1581091215367-59ab6d1e9b8c?q=80&w=800",
+              img: "/chiller.jpg",
             },
           ].map((item, i) => (
             <motion.div
