@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
 
-    const phone = "91 8617781293"; // your WhatsApp number with country code
+    const phone = "918617781293"; // your WhatsApp number with country code
 
     const text = `Hello, my name is ${form.name}.
 Email: ${form.email}
