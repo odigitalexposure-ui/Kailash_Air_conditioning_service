@@ -11,7 +11,7 @@ const ACRepair = () => {
         <img
           src="/ac2.jpg"
           alt="AC Repair"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_0%]"
         />
 
         <div className="absolute inset-0 bg-[#1E3A5F]/70"></div>
